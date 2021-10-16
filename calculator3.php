@@ -4,41 +4,41 @@ $currentValue = 0;
 $input = [];
 $currentOperator = 0;
 
-//Still working on this function
-function calculateDependingOnOperators($userInput)
-{
-    
-   $arr = formatUserInput($userInput);
 
-    // calculate user input
-    $operatorCount = 0;
-    $action = null;
-    for($i = 0; $i <= count($arr)-1; $i++)
-    {
-        if(is_numeric($arr[$i]))
-        {
+// function calculateDependingOnOperators($userInput)
+// {
+    
+//    $arr = formatUserInput($userInput);
+
+//     // calculate user input
+//     $operatorCount = 0;
+//     $action = null;
+//     for($i = 0; $i <= count($arr)-1; $i++)
+//     {
+//         if(is_numeric($arr[$i]))
+//         {
             
-            if($action)
-            {
-                echo "11111111111111111111111111111";
-                if($action == "+" || $action == "-" || $action == "/" || $action == "*")
-                {
-                    if($operatorCount < 3)
-                    {
-                        $operatorCount++;
-                        $action = null;
-                    }
+//             if($action)
+//             {
+//                 echo "1+";
+//                 if($action == "+" || $action == "-" || $action == "/" || $action == "*")
+//                 {
+//                     if($operatorCount < 3)
+//                     {
+//                         $operatorCount++;
+//                         $action = null;
+//                     }
                     
-                }
-            }
-        }
-        else 
-        {
-            $action = $arr[$i];
-        }
-    }
-    return $operatorCount;
-}
+//                 }
+//             }
+//         }
+//         else 
+//         {
+//             $action = $arr[$i];
+//         }
+//     }
+//     return $operatorCount;
+// }
 
 
 //Change number indicator plus or minus
@@ -79,7 +79,7 @@ function calculateEntryValue($userInput)
 }
 
 //Calculate input
-function calculteInput($userInput)
+function calculateInput($userInput)
 {
     //format user input
     $arr = formatUserInput($userInput);
@@ -171,7 +171,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
                       
             if ($key == '=') 
             {
-                $currentValue = calculteInput($input);
+                $currentValue = calculateInput($input);
                 $input = [$currentValue];
             }
             elseif($key == "clearentry") 
@@ -212,10 +212,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
             elseif($key != 'input')
             {
                 $input[] = $value;
-                $counterValue = calculateDependingOnOperators($input);
-                echo "<br> <br> <br";
-                echo "labassss";
-                
+                //$counterValue = calculateDependingOnOperators($input);
             }
         }
     }
